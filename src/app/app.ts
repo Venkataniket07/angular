@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { UserListComponent } from './components/user-list/user-list.component';
 
+/**
+ * Root Component
+ * This is the entry point of the application's view hierarchy.
+ * It currently renders the UserListComponent which handles the main functionality.
+ */
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [UserListComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('angular');
+  // Logic for the root component would go here.
 }

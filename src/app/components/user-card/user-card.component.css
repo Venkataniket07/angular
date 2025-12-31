@@ -1,0 +1,178 @@
+/* 
+  Container config 
+  Using CSS variables (defined in styles.css) for consistency 
+*/
+.user-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  
+  /* Flexbox for vertical layout */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  /* Smooth transition for hover effects */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Subtle border and positioning for the pseudo-element gradient */
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 
+  Top Gradient Border Effect 
+  Hidden by default (opacity 0), appears on hover 
+*/
+.user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover State: Lift card up and show deeper shadow */
+.user-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Reveal gradient border on hover */
+.user-card:hover::before {
+  opacity: 1;
+}
+
+/* Information Section Layout */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 
+  Avatar Circle 
+  Uses a gradient background and centers text 
+*/
+.avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #e0e7ff 0%, #fae8ff 100%); /* Soft pastel gradient */
+  border-radius: 50%; /* Make it a circle */
+  
+  /* Center the initials */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-weight: 700;
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+  
+  /* Double border effect */
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #e2e8f0;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.username {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Pill-shaped badge for Company */
+.company-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.75rem;
+  background: #f1f5f9;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #475569;
+  margin-top: 0.25rem;
+  align-self: flex-start; /* Do not stretch to full width */
+}
+
+/* Action Buttons Area */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto; /* Pushes to bottom of card */
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+/* Shared Button Styles */
+.btn-card {
+  flex: 1; /* Both buttons take equal width */
+  padding: 0.625rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* Edit Button Specifics */
+.btn-edit {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid transparent;
+}
+
+.btn-edit:hover {
+  background: white;
+  color: var(--primary-color);
+  border-color: #e2e8f0;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Delete Button Specifics */
+.btn-delete {
+  background: #fef2f2;
+  color: var(--danger-color);
+  border: 1px solid transparent;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+  border-color: #fecaca;
+  box-shadow: var(--shadow-sm);
+}
