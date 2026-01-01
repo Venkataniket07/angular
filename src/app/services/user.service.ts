@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
+import { environment } from '../../environments/environment';
 
 /**
  * User Service
@@ -13,8 +14,8 @@ import { User } from '../models/user.model';
 })
 export class UserService {
   private http = inject(HttpClient);
-  // Base URL for the JSONPlaceholder API
-  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
+  // Base URL from environment configuration
+  private apiUrl = environment.apiUrl;
 
   /**
    * Fetches all users from the API.

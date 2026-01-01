@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 /**
  * Application Routes
- * Defines the URL paths and the components they should render.
- * Currently empty as we are using a single-page layout with App component,
- * but new pages/features would be added here.
+ * Defines the navigation structure of the app.
  */
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'users', component: UserListComponent },
+  { path: '**', component: PageNotFoundComponent } // Wildcard route for 404
+];
