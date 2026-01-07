@@ -15,7 +15,7 @@ import { environment } from '../../environments/environment';
 export class UserService {
   private http = inject(HttpClient);
   // Base URL from environment configuration
-  private apiUrl = environment.apiUrl;
+  private apiUrl = `${environment.jsonPlaceholderUrl}/users`;
 
   /**
    * Fetches all users from the API.
