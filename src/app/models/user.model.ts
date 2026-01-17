@@ -1,43 +1,103 @@
 /**
- * Represents geographical coordinates
+ * Coordinates definition
  */
-export interface Geo {
-  lat: string;
-  lng: string;
+export interface Coordinates {
+  lat: number;
+  lng: number;
 }
 
 /**
- * Represents a physical address
+ * Address definition
  */
 export interface Address {
-  street: string;
-  suite: string;
+  address: string;
   city: string;
-  zipcode: string;
-  geo: Geo;
+  state: string;
+  stateCode: string;
+  postalCode: string;
+  coordinates: Coordinates;
+  country: string;
 }
 
 /**
- * Represents company information associated with a user
+ * Hair information
+ */
+export interface Hair {
+  color: string;
+  type: string;
+}
+
+/**
+ * Bank information
+ */
+export interface Bank {
+  cardExpire: string;
+  cardNumber: string;
+  cardType: string;
+  currency: string;
+  iban: string;
+}
+
+/**
+ * Company definition
  */
 export interface Company {
+  department: string;
   name: string;
-  catchPhrase: string;
-  bs: string;
+  title: string;
+  address: Address;
+}
+
+/**
+ * Crypto information
+ */
+export interface Crypto {
+  coin: string;
+  wallet: string;
+  network: string;
 }
 
 /**
  * User Model
- * Defines the shape of the User object as returned by the API.
- * Using TypeScript interfaces ensures type safety throughout the app.
+ * Defines the shape of the User object based on the data provided.
  */
 export interface User {
   id: number;
-  name: string;
-  username: string;
+  firstName: string;
+  lastName: string;
+  maidenName: string;
+  age: number;
+  gender: string;
   email: string;
-  address: Address;
   phone: string;
-  website: string;
+  username: string;
+  password: string;
+  birthDate: string;
+  image: string;
+  bloodGroup: string;
+  height: number;
+  weight: number;
+  eyeColor: string;
+  hair: Hair;
+  ip: string;
+  address: Address;
+  macAddress: string;
+  university: string;
+  bank: Bank;
   company: Company;
+  ein: string;
+  ssn: string;
+  userAgent: string;
+  crypto: Crypto;
+  role: string;
+}
+
+/**
+ * API Response for Users
+ */
+export interface UsersResponse {
+  users: User[];
+  total: number;
+  skip: number;
+  limit: number;
 }
